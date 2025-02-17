@@ -1,0 +1,33 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0;
+  
+  padding-inline: 0;
+}
+
+html {
+  font-family: "Roboto", serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.logo {
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 1em #00ffaaaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #09d72faa);
+}
+
+
+
