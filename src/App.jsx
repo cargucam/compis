@@ -2,7 +2,7 @@ import "./App.css";
 import { Header } from "./components/Header";
 import { HeroBanner } from "./components/HeroBanner";
 import { ProductList } from "./components/ProductList";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");

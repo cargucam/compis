@@ -15,15 +15,20 @@ import { PiMagnifyingGlass } from "react-icons/pi";
 import { useColorMode } from "./ui/color-mode";
 import { InputGroup } from "@chakra-ui/input";
 import type { HeaderType } from "../types/types";
+import { useDebouncedCallback } from "use-debounce";
 
 export const Header = ({ setSearchTerm }: HeaderType) => {
   const { toggleColorMode, colorMode } = useColorMode();
   const isLight = colorMode === "light";
 
-  const handleInputChange = (e) => {
-    const searchTerm = e.target.value;
-    setSearchTerm(searchTerm);
-  };
+  const debouncedInputChange = useDebouncedCallback(
+    // function
+    (searchTerm) => {
+      setSearchTerm(searchTerm);
+    },
+    // delay in ms
+    50
+  );
 
   return (
     <Stack dropShadow="0 10px 2px #DDD" mb={8} gap={4}>
@@ -59,7 +64,7 @@ export const Header = ({ setSearchTerm }: HeaderType) => {
           <Input
             type="search"
             placeholder="Søk etter produkter"
-            onChange={handleInputChange}
+            onChange={(e) => debouncedInputChange(e.target.value)}
             borderColor="#d5d5d5"
           />
         </InputGroup>
